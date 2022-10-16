@@ -6,32 +6,42 @@ on:
  pull_request:
   branches:
    - main
+  types: [opened, synchronize, reopened]
 
-# Jobs to carry out
 jobs:
- deploy:
-  # Operating system to run job on
+ test:
   runs-on: ubuntu-latest
-
-  # Steps in job
   steps:
-   # Get code from repo
    - name: Checkout code
-     uses: actions/checkout@v1
-   # Install NodeJS
+     uses: actions/checkout@v2
+
    - name: Use Node.js 16.x
      uses: actions/setup-node@v1
      with:
       node-version: 16.x
-   # Run npm install and build on our code
-   - run: yarn install
-   - run: yarn run build
-   # Deploy to Netlify using our dev secrets
-   - name: Deploy to netlify
+
+   - name: Install
+     run: yarn install --frozen-lockfile
+
+   - name: 📦 Build project
+     run: yarn build
+
+   # Deploy to Netlify with a personalized message
+   - name: 🚀 Deploy to Netlify
+     id: deploy-netlify
      uses: netlify/actions/cli@master
      env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
      with:
-      args: deploy --dir=build --prod
-      secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+      args: deploy -m 'v${{ steps.package-version.outputs.current-version}} ・ ${{ github.head_ref }}'
+
+   # Publish the inspect and preview link to the PR
+   - name: 👓 Netlify Preview URL
+     uses: unsplash/comment-on-pr@master
+     env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OUTPUT: "This pull request is being automatically deployed to Netlify.\n\n🔍 Inspect: ${{ steps.deploy-netlify.outputs.NETLIFY_LOGS_URL }}\n✅ Preview: ${{ steps.deploy-netlify.outputs.NETLIFY_URL }}"
+     with:
+      msg: ${{ env.OUTPUT }}
+      check_for_duplicate_msg: false
