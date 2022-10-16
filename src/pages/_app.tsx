@@ -1,5 +1,6 @@
 // Components
 import ErrorBoundary from '@/components/error-boundary';
+import MainLayout from '@/components/layouts';
 
 // Services
 import { createEmotionCache, theme } from '@/services/material';
@@ -47,7 +48,9 @@ const MyApp = ({ Component, pageProps, emotionCache = clientSideEmotionCache }: 
     />
     <CacheProvider value={emotionCache}>
      <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
+      <MainLayout>
+       <Component {...pageProps} />
+      </MainLayout>{' '}
      </ThemeProvider>
     </CacheProvider>
     <ReactQueryDevtools initialIsOpen={false} />
