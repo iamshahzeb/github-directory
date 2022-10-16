@@ -1,5 +1,6 @@
 // Components
 import ErrorBoundary from '@/components/error-boundary';
+import MainLayout from '@/components/layouts';
 
 // Services
 import { reactQueryUtilService } from '@/services/react-query';
@@ -35,7 +36,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
      draggable
      pauseOnHover
     />
-    <Component {...pageProps} />
+    <MainLayout>
+     <Component {...pageProps} />
+    </MainLayout>
     <ReactQueryDevtools initialIsOpen={false} />
    </QueryClientProvider>
   </ErrorBoundary>
