@@ -4,22 +4,35 @@
 
 ## General Information
 
--
+- Github search which helps users to search through different users and repositories.
 
 ## Features
 
+- Searching implemented for users and repositories.
+- User lists and Repository Lists are added.
+- Added InfiniteScroll to scroll through different search results.
+- Built in and ready to use translation feature added.
+- Using "Vite.js" powerful react framework.
+- Project is configured with "Husky" pre-commit and pre-push hooks
+  Following hooks are intergrated:
+  1. Pre commit hook for linting.
+  2. Pre commit hook which enforces convential commits guideline.
+  3. Pre push hook which makes sure that project is being build successfully.
+  4. Netlify deployment CI/CD
 - Using "MUI" for UI styling.
 - Using "React-query" for manuplating queries.
-- CI is intergated in project using github flows
+- Using Axios Interceptors to catch and response data.
+- Using Toastify to show toast messages.
+- CI/CD is intergated in project using github flows
   Following actions are being performed:
   1. PR title lint check
   2. PR linting check
   3. PR build check
   4. Netlify deployment CI/CD
 
-## Demo
+## Live Demo
 
-![app-demo](TODO: Demo to be added)
+![app-demo](https://github-search-demo1.netlify.app/)
 
 ## Setup
 
