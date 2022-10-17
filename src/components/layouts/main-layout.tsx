@@ -1,8 +1,8 @@
 // Components
-import Header from '@/components/header';
+import { ReactNode } from 'react';
 
 // Packages
-import { ReactNode } from 'react';
+import Header from '@/components/header';
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
  /**

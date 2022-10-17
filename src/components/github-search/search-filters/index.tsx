@@ -29,16 +29,13 @@ const SearchFilter = ({ handleFilterChange }: { handleFilterChange: (val: string
  return (
   <Box sx={{ minWidth: 120 }}>
    <FormControl fullWidth>
-    <InputLabel id="demo-simple-select-label">Search by</InputLabel>
+    <InputLabel id="demo-simple-select-label">Search by Users or Repositories</InputLabel>
     {/* @ts-ignore */}
     <Select
      labelId="demo-simple-select-label"
      id="demo-simple-select"
-     label="search by"
+     label="Search by Users or Repositories"
      onChange={handleChange}>
-     <MenuItem value="">
-      <em>search by</em>
-     </MenuItem>
      {Object.values(searchModes).map((mode) => {
       return (
        <MenuItem key={mode.key} value={mode.key}>

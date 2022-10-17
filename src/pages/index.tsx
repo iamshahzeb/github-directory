@@ -3,6 +3,7 @@ import RepositoryList from '@/components/github-search/repository-list';
 import SearchBar from '@/components/github-search/search-bar';
 import UserList from '@/components/github-search/user-list';
 import { githubApiService, githubConstantsService } from '@/services/github-search';
+import { Container } from '@mui/system';
 
 // Types
 import { PageQuery } from '@/services/github-search/types';
@@ -11,9 +12,10 @@ import { PageQuery } from '@/services/github-search/types';
 import { ReactQueryEnums } from '@/services/react-query';
 
 // Styles
-import styles from '@/styles/Home.module.css';
 
 // Packages
+import CircularProgressBar from '@/components/ui/circular-progress-bar';
+import { Box } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 import type { NextPage } from 'next';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -135,22 +137,55 @@ const Home: NextPage = () => {
   * @Render
   */
  return (
-  <div className={styles.container}>
-   <SearchBar onSearchChange={onPageChange} />
-   <div style={{ height: '200px', width: '200px', backgroundColor: 'black', overflow: 'scroll' }}>
-    {listLoader && <h1>...loading</h1>}
-    {noResults && <h1>no results found</h1>}
-    {searchQuery.filter === githubConstantsService.SEARCH_MODES?.users?.key && (
-     <UserList users={searchData} />
-    )}
-    {searchQuery.filter === githubConstantsService.SEARCH_MODES?.repositories?.key && (
-     <RepositoryList repositories={searchData} />
-    )}
-    <div className="loader" ref={bottomObserverElem} style={{ height: '1px' }}>
-     {bottomLoader ? 'Loading...' : ''}
-    </div>
-   </div>
-  </div>
+  <Box bgcolor="#f6f8fa" width={1} height="calc(100vh - 65px)">
+   <Container maxWidth="xl">
+    <Box width={1}>
+     <SearchBar onSearchChange={onPageChange} />
+
+     <Box
+      display="flex"
+      alignItems={listLoader ? 'center' : 'flex-start'}
+      justifyContent={listLoader ? 'center' : 'flex-start'}
+      flexDirection="column"
+      position="relative"
+      width={1}
+      height={700}
+      sx={{ overflowY: 'scroll' }}>
+      {listLoader && <CircularProgressBar color="inherit" />}
+      {noResults && (
+       <Box
+        component="p"
+        fontSize="24px"
+        fontWeight="600"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        width={1}
+        height={1}>
+        No results found...
+       </Box>
+      )}
+      {!listLoader && searchQuery.filter === githubConstantsService.SEARCH_MODES?.users?.key && (
+       <UserList users={searchData} />
+      )}
+      {!listLoader &&
+       searchQuery.filter === githubConstantsService.SEARCH_MODES?.repositories?.key && (
+        <RepositoryList repositories={searchData} />
+       )}
+      <Box
+       className="loader"
+       ref={bottomObserverElem}
+       width={1}
+       height="1px"
+       display="flex"
+       alignItems="center"
+       justifyContent="center">
+       {bottomLoader && <CircularProgressBar color="inherit" />}
+      </Box>
+     </Box>
+    </Box>
+   </Container>
+  </Box>
  );
 };
 

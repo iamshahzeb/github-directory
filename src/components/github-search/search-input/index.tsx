@@ -32,14 +32,8 @@ const SearchInput = ({ handleSearchChange }: { handleSearchChange: (val: string)
   * @Render
   */
  return (
-  <Box
-   component="form"
-   sx={{
-    '& > :not(style)': { m: 1, width: '25ch' },
-   }}
-   noValidate
-   autoComplete="off">
-   <TextField id="outlined-name" label="search" onChange={handleChange} />
+  <Box component="form" width={1} noValidate autoComplete="off">
+   <TextField fullWidth id="outlined-name" label="search" onChange={handleChange} />
   </Box>
  );
 };
