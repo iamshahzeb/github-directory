@@ -32,17 +32,17 @@ export const axiosApiService = (function () {
     });
 
     // Request interceptors config
-    const authStudioRequestInterceptor = (config: any) => config;
-    const authStudioRequestErrorInterceptor = (error: any) => Promise.reject(error);
+    const coreRequestInterceptor = (config: any) => config;
+    const coreRequestErrorInterceptor = (error: any) => Promise.reject(error);
 
     coreInstance.interceptors.request.use(
-        authStudioRequestInterceptor,
-        authStudioRequestErrorInterceptor,
+        coreRequestInterceptor,
+        coreRequestErrorInterceptor,
     );
 
     // Response interceptors config
-    const authStudioResponseInterceptor = (response: { data: any }) => response.data;
-    const authStudioResponseErrorInterceptor = (error: any) => {
+    const coreResponseInterceptor = (response: { data: any }) => response.data;
+    const coreResponseErrorInterceptor = (error: any) => {
         if (
             error &&
             error.response &&
@@ -64,8 +64,8 @@ export const axiosApiService = (function () {
     };
 
     coreInstance.interceptors.response.use(
-        authStudioResponseInterceptor,
-        authStudioResponseErrorInterceptor,
+        coreResponseInterceptor,
+        coreResponseErrorInterceptor,
     );
 
     return {

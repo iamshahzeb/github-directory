@@ -16,6 +16,7 @@ import type { AppProps } from 'next/app';
 import { ToastContainer } from 'react-toastify';
 
 // Styles
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/globals.css';
 
 // Initialize react query client

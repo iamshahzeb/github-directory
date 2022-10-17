@@ -1,11 +1,11 @@
-import { en, de } from '../../translations';
+import { ar, en } from '../../translations';
 
 export const AvailableLanguagesEnums = {
- en,
- de,
+    en,
+    ar,
 };
 
 export const LanguageDropDownValues = [
- { title: 'English', value: 'en' },
- { title: 'German', value: 'de' },
+    { title: 'English', value: 'en' },
+    { title: 'Arabic', value: 'ar' },
 ];

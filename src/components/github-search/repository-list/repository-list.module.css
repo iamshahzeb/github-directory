@@ -1,0 +1,3 @@
+.repositoryListBox:nth-child(even) {
+ background-color: #e9e9e9;
+}

@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "next build && next export",
+        "build": "next build",
         "start": "next start",
         "lint": "next lint",
         "prettier": "prettier --write .",
@@ -14,6 +14,7 @@
         "@emotion/react": "^11.10.4",
         "@emotion/server": "^11.10.0",
         "@emotion/styled": "^11.10.4",
+        "@mui/icons-material": "^5.10.9",
         "@mui/material": "^5.10.9",
         "@tanstack/react-query": "^4.12.0",
         "@tanstack/react-query-devtools": "^4.12.0",
@@ -24,7 +25,8 @@
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-i18next": "^11.18.6",
-        "react-toastify": "^9.0.8"
+        "react-toastify": "^9.0.8",
+        "tss-react": "^4.4.1"
     },
     "devDependencies": {
         "@commitlint/cli": "^17.1.2",
