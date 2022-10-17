@@ -21,7 +21,6 @@ const Header = () => {
      Github Search
     </Typography>
    </Stack>
-   <Box>Dropdown</Box>
   </Box>
  );
 };
