@@ -1,4 +1,5 @@
-import de from './de.json';
+import ar from './ar.json';
 import en from './en.json';
 
-export { en, de };
+export { en, ar };
+

@@ -33,7 +33,12 @@ const SearchInput = ({ handleSearchChange }: { handleSearchChange: (val: string)
   */
  return (
   <Box component="form" width={1} noValidate autoComplete="off">
-   <TextField fullWidth id="outlined-name" label="search" onChange={handleChange} />
+   <TextField
+    fullWidth
+    id="outlined-name"
+    label="please enter some search text"
+    onChange={handleChange}
+   />
   </Box>
  );
 };

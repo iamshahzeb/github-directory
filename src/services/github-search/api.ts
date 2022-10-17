@@ -2,7 +2,7 @@
 import { axiosApiService } from '@/services/axios';
 
 // Types
-import { PageQuery } from './types';
+import { IPageQuery } from './types';
 
 export const githubApiService = (function () {
 
@@ -11,7 +11,7 @@ export const githubApiService = (function () {
   * @param payload contains accessToken
   * @returns Promise
   */
-    const getGithubListData = (queryParams: PageQuery) => {
+    const getGithubListData = (queryParams: IPageQuery) => {
 
         const queryTerm = `q=` + encodeURIComponent((queryParams?.searchText || '').toLowerCase());
         const queryPerPage = `&per_page=${queryParams?.limit}`;

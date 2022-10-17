@@ -13,7 +13,12 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
  */
 const searchModes = githubConstantsService.SEARCH_MODES;
 
-const SearchFilter = ({ handleFilterChange }: { handleFilterChange: (val: string) => void }) => {
+interface ISearchFilterProps {
+ handleFilterChange: (val: string) => void;
+ defaultVal?: string;
+}
+
+const SearchFilter = ({ handleFilterChange, defaultVal }: ISearchFilterProps) => {
  /**
   *
   * @Methods
@@ -29,12 +34,12 @@ const SearchFilter = ({ handleFilterChange }: { handleFilterChange: (val: string
  return (
   <Box sx={{ minWidth: 120 }}>
    <FormControl fullWidth>
-    <InputLabel id="demo-simple-select-label">Search by Users or Repositories</InputLabel>
-    {/* @ts-ignore */}
+    <InputLabel id="filter-select-label">Search by Users or Repositories</InputLabel>
     <Select
-     labelId="demo-simple-select-label"
-     id="demo-simple-select"
+     labelId="filter-select"
+     id="filter-select"
      label="Search by Users or Repositories"
+     value={defaultVal}
      onChange={handleChange}>
      {Object.values(searchModes).map((mode) => {
       return (

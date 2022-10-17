@@ -1,12 +1,21 @@
+// Styles
 import repositoryListClasses from '@/components/github-search/repository-list/repository-list.module.css';
+
+// Types
+import { IRepoResults } from '@/services/github-search/types';
+
+// Packges
 import ShareIcon from '@mui/icons-material/Share';
 import StarIcon from '@mui/icons-material/Star';
 import { Box, Chip, Stack, Typography } from '@mui/material';
 
-const RepositoryList = ({ repositories }: { repositories: any }) => {
+const RepositoryList = ({ repositories }: { repositories: IRepoResults[] }) => {
+ /**
+  * @Render
+  */
  return (
   <Box width={1} bgcolor={repositories.length ? '#cdcdcd' : ''} p={1.5}>
-   {(repositories || []).map((repository: any) => (
+   {(repositories || []).map((repository: IRepoResults) => (
     <Box
      className={repositoryListClasses.repositoryListBox}
      mt={0.5}
