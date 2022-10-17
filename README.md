@@ -32,7 +32,7 @@
 
 ## Live Demo
 
-![app-demo](https://github-search-demo1.netlify.app/)
+🔗 Github Search Demo](https://github-search-demo1.netlify.app/
 
 ## Setup
 
@@ -81,10 +81,9 @@ release/1.0.0 -> contains changes which are ready for production
 
 ## Improvements
 
-- Add E2E test cases.
+- Add unit test, integration and E2E test casess.
+- Integrate Sentry to track traffic and errors.
 - Add SonarQube to analyze code quality and code security.
-
-## Features that can be added
 
 ## About Me
 
