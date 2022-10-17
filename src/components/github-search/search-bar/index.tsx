@@ -11,11 +11,11 @@ const SearchBar = ({ onSearchChange }: { onSearchChange: (query: any) => void })
   */
  const handleSearchChange = useCallback((val: string) => {
   onSearchChange({ searchText: val });
- }, []);
+ }, [onSearchChange]);
 
  const handleFilterChange = useCallback((val: string) => {
   onSearchChange({ filter: val });
- }, []);
+ }, [onSearchChange]);
 
  /**
   * @Render
