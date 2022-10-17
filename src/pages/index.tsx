@@ -138,10 +138,9 @@ const Home: NextPage = () => {
   */
  return (
   <Box bgcolor="#f6f8fa" width={1} height="calc(100vh - 65px)">
-   <Container maxWidth="xl">
+   <Container maxWidth={false}>
     <Box width={1}>
      <SearchBar onSearchChange={onPageChange} />
-
      <Box
       display="flex"
       alignItems={listLoader ? 'center' : 'flex-start'}
@@ -149,8 +148,7 @@ const Home: NextPage = () => {
       flexDirection="column"
       position="relative"
       width={1}
-      height={700}
-      sx={{ overflowY: 'scroll' }}>
+      height={1}>
       {listLoader && <CircularProgressBar color="inherit" />}
       {noResults && (
        <Box
@@ -174,6 +172,8 @@ const Home: NextPage = () => {
        )}
       <Box
        className="loader"
+       position="absolute"
+       bottom={50}
        ref={bottomObserverElem}
        width={1}
        height="1px"
