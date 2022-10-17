@@ -2,6 +2,9 @@
 import { Box, Skeleton } from '@mui/material';
 
 const EmptyListSkeleton = () => {
+ /**
+  * @Render
+  */
  return (
   <Box width={1}>
    <Skeleton height={80} />

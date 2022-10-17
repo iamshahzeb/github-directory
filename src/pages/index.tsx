@@ -58,7 +58,7 @@ const Home: NextPage = () => {
     }));
     setSearchData((prevData: Partial<ISearchResults[]>) => [...prevData, ...resp.items]);
    },
-   enabled: !!(searchQuery.searchText || '').trim(),
+   enabled: !!searchQuery.searchText,
    keepPreviousData: true,
   },
  );
@@ -142,7 +142,7 @@ const Home: NextPage = () => {
   /**
    * NOTE: we will only make the API call when search text is present.
    */
-  if (searchQuery.searchText || ''.trim()) {
+  if (searchQuery.searchText) {
    refetch();
   }
  }, [searchQuery.searchText, searchQuery.currentPage, searchQuery.filter, refetch]);
@@ -155,7 +155,7 @@ const Home: NextPage = () => {
    <Container maxWidth={false}>
     <Box width={1}>
      {/* Search Bar component */}
-     <SearchBar onSearchChange={onPageChange} />
+     <SearchBar onSearchChange={onPageChange} selectedFilter={searchQuery?.filter} />
      <Box
       display="flex"
       alignItems={listLoader ? 'center' : 'flex-start'}

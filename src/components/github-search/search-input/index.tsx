@@ -11,8 +11,7 @@ const SearchInput = ({ handleSearchChange }: { handleSearchChange: (val: string)
   * @Methods
   */
  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-  setSearchText(event.target.value);
-  setSearchText;
+  setSearchText(event.target.value || ''.trim());
  };
 
  /**

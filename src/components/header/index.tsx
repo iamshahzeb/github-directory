@@ -1,4 +1,7 @@
+// Styles
 import classes from '@/components/header/header.module.css';
+
+// Packages
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { Box, Stack, Typography } from '@mui/material';
 
