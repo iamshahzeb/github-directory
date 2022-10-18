@@ -12,7 +12,7 @@
 - User lists and Repository Lists are added.
 - Added InfiniteScroll to scroll through different search results.
 - Built in and ready to use translation feature added.
-- Using "Vite.js" powerful react framework.
+- Using "Next js" powerful react framework.
 - Project is configured with "Husky" pre-commit and pre-push hooks
   Following hooks are intergrated:
   1. Pre commit hook for linting.
